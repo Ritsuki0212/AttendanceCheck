@@ -46,4 +46,8 @@ RUN apt-get update && \
 COPY ./php-fpm.d/zzz-www.conf /usr/local/etc/php-fpm.d/zzz-www.conf
 COPY ./php.ini /usr/local/etc/php/php.ini
 
+RUN curl -sL https://deb.nodesource.com/setup_12.x | bash - \ 
+    && apt-get update \
+    && apt-get install -y nodejs
+
 WORKDIR /work/backend
